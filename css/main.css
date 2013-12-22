@@ -21,8 +21,38 @@ body>section {padding: 1em}
     padding: 1em;
 }
 
-#filters li {display: inline; margin-right: 2em}
-#task-form input, #task-list label, #task-form textarea, #task-list textarea {display: block; font-size: smaller; width: 20em;}
+/* Filters */
+#filters li {
+	display: inline;
+	margin-right: 2em;
+}
+.super {
+	vertical-align:super;
+	font-size: small;
+}
+
+/* Task form */
+form#task-form {width: 20em}
 #task-form input {margin: 0.5em 0}
-#task-list li {margin: 1em 0; list-style: none}
-.super {vertical-align:super; font-size: small}
+#task-form input, #task-form textarea {
+	display: block; 
+	font-size: smaller; 
+	width: 100%;
+}
+
+/* Task list */
+ul#task-list {width: 20em}
+#task-list label, #task-list textarea {width: 16em}
+#task-list li {
+	margin: 1em 0; 
+	list-style: none;
+}
+.toggle {
+	float: left; 
+	width: 1em;
+}
+.destroy {
+	float: right; 
+	width: 2.8em; 
+	height: 1.8em;
+}

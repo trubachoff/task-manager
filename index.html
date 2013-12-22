@@ -15,36 +15,6 @@
     <link rel="stylesheet" href="css/reset-html5.css" />
     <link rel="stylesheet" href="css/main.css" />
 
-    <style>
-        html, body {height: 100%; font-size: 14pt}
-        h1 {font: small-caps xx-large sans}
-        body>section {padding: 1em}
-        
-        /* Wrapper for page content to push down footer */
-        #wrap {
-            min-height: 100%;
-            height: auto !important;
-            height: 100%;
-            /* Negative indent footer by its height */
-            margin-bottom: -3em;
-        }
-        #footer, #footer-push {
-            height: 3em;
-            margin: 0;
-            padding: 0;
-        }
-        #footer {
-            background: lightgray;
-            padding: 1em;
-        }
-
-        #filters li {display: inline; margin-right: 2em}
-        #task-form input, #task-list label, #task-form textarea, #task-list textarea {display: block; font-size: smaller; width: 20em;}
-        #task-form input {margin: 0.5em 0}
-        #task-list li {margin: 1em 0; list-style: none}
-        .super {vertical-align:super; font-size: small}
-    </style>
-
     <title>Personal Task-manager</title>
 </head>
 
@@ -54,20 +24,22 @@
         <h1>Personal task-manager</h1>
         <ul id="filters">
             <li><a href="#/">All<span class="super">({{tasks.length}})</span></a></li>
-            <li><a href="#/active">Active</a></li>
-            <li><a href="#/completed">Completed</a></li>
+            <li><a href="#/active">Active<span class="super">({{remainingCount}})</span></a></li>
+            <li><a href="#/completed">Completed<span class="super">({{completedCount}})</span></a></li>
         </ul>
     </header>
 
-    <form id="task-form"> 
-	    <input id="new-task" placeholder="Enter title" autofocus />
-        <textarea placeholder="Enter description"></textarea>
+    <form id="task-form" ng-submit="addTask()"> 
+	    <input id="new-task" placeholder="Enter title" autofocus ng-model="newTitle"/>
+        <textarea placeholder="Enter description" ng-model="newDesc"></textarea>
         <input class="btn-primary" type="submit" value="add">
 	</form>
 
     <ul id="task-list">
-        <li ng-repeat="task in tasks">
+        <li ng-repeat="task in tasks | filter:statusFilter">
             <div>
+                <input class="toggle" type="checkbox" ng-model="task.completed">
+                <button class="destroy" ng-click="removeTask(task)"><i class="fa fa-trash-o fa-fw"></i></button>
                 <label>{{task.title}}</label>
                 <textarea readonly>{{task.description}}</textarea>
             </div>

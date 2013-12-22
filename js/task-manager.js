@@ -4,11 +4,54 @@
 var taskmgr = angular.module('taskmgr', []);
 
 // Main app controller
-taskmgr.controller('TaskCtrl', function TaskCtrl($scope, taskStorage) {
+taskmgr.controller('TaskCtrl', function TaskCtrl($scope, $location, taskStorage, filterFilter) {
 	var tasks = $scope.tasks = taskStorage.get();
 
-	$scope.newTask = '';
+	$scope.newTitle, $scope.newDesc = '';
 	$scope.editedTask = null;
+
+	$scope.$watch('tasks', function (newValue, oldValue) {
+		$scope.remainingCount = filterFilter(tasks, { completed: false }).length;
+		$scope.completedCount = tasks.length - $scope.remainingCount;
+		$scope.allChecked = !$scope.remainingCount;
+		if (newValue !== oldValue) { // This prevents unneeded calls to the local storage
+			taskStorage.put(tasks);
+		}
+	}, true);
+
+	if ($location.path() === '') {
+		$location.path('/');
+	}
+
+	$scope.location = $location;
+
+	$scope.$watch('location.path()', function (path) {
+		$scope.statusFilter = (path === '/active') ?
+			{ comleted: false } : (path === '/completed') ?
+			{ comleted: true } : null;
+	});
+
+	$scope.addTask = function() {
+		var newTitle = $scope.newTitle;
+		
+		if(!newTitle.length) {
+			alert("Please enter title!");
+			return;
+		}
+		var newDesc = $scope.newDesc.trim();
+		tasks.push({
+			title: newTitle,
+			description: newDesc,
+			completed: false
+		});
+
+		$scope.newTask = '';
+	}
+
+	$scope.removeTask = function (task) {
+		tasks.splice(tasks.indexOf(task), 1);
+	};	
+
 });
 
 // Local sorage service
@@ -23,4 +66,5 @@ taskmgr.factory('taskStorage', function() {
 			localStorage.setItem(STORAGE_ID, JSON.stringify(tasks));
 		}
 	};
+
 });
