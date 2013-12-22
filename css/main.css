@@ -1,7 +1,7 @@
 
 html, body {height: 100%;}
 h1 {font: small-caps x-large sans;}
-body>section {padding: 1em;}
+body>section {padding: 20px;}
 
 /* Wrapper for page content to push down footer */
 #wrap {
@@ -9,31 +9,32 @@ body>section {padding: 1em;}
     height: auto !important;
     height: 100%;
     /* Negative indent footer by its height */
-    margin-bottom: -3em;
+    margin-bottom: -50px;
 }
 #footer, #footer-push {
-    height: 3em;
+    height: 50px;
     margin: 0;
     padding: 0;
 }
 #footer {
     background: lightgray;
-    padding: 1em;
+    padding: 20px;
 }
 
 /* Filters */
 #filters li {
 	display: inline;
-	margin-right: 2em;
+	margin-left: 2em;
 }
 .super {
 	vertical-align:super;
 	font-size: small;
+	color: gray;
 }
 
 /* Task form */
-form#task-form {width: 20em}
-#task-form input {margin: 0.5em 0}
+form#task-form {width: 320px}
+#task-form input {margin: 12px 0}
 #task-form input, #task-form textarea {
 	display: block; 
 	font-size: smaller; 
@@ -42,28 +43,34 @@ form#task-form {width: 20em}
 }
 #task-form>span {
 	position: absolute; 
-	left: 26.5em; 
-	top: 5.8em;
+	left: 350px; 
+	top: 85px;
 	font-size: smaller;
 	color: red;
 }
 
 /* Task list */
-ul#task-list {width: 20em}
+ul#task-list {width: 320px}
 #task-list label, #task-list div {
-	width: 15em;
-	margin-left: 1em;
+	width: 240px;
+	margin-left: 16px;
 }
 #task-list li {
-	margin: 1em 0; 
+	margin: 12px 0; 
 	list-style: none;
+}
+#task-list li.completed label {
+	text-decoration: line-through;
+}
+#task-list li.completed div.description {
+	color: lightgray;
 }
 .toggle {
 	float: left; 
-	width: 1em;
+	width: 15px;
 }
 .destroy {
 	float: right; 
-	width: 2.8em; 
-	height: 1.8em;
+	width: 40px; 
+	height: 30px;
 }

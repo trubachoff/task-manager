@@ -42,7 +42,7 @@
             <button class="destroy" ng-click="removeTask(task)"><i class="fa fa-trash-o fa-fw"></i></button>
             <div>
                 <label ng-dblclick="editTask(task)">{{task.title}}</label>
-                <div ng-dblclick="editTask(task)">{{task.description}}</div>
+                <div class="description" ng-dblclick="editTask(task)">{{task.description}}</div>
             </div>
         </li>
     </ul>
