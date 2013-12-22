@@ -31,15 +31,15 @@
 
     <form id="task-form" name="taskForm" ng-submit="addTask()">
 	    <input id="new-title" name="newTitle" placeholder="Please enter a title" autofocus required ng-model="newTitle"/>
-        <span ng-show="taskForm.newTitle.$error.required">Requred field!</span>
+        <span class="alert alert-warning" ng-show="taskForm.newTitle.$error.required">Requred field!</span>
         <textarea placeholder="Enter description" ng-model="newDesc"></textarea>
-        <input class="btn-primary" type="submit" value="add">
+        <input class="btn  btn-primary" type="submit" value="Add" ng-disabled="taskForm.$invalid" />
 	</form>
 
     <ul id="task-list">
-        <li ng-repeat="task in tasks | filter:statusFilter" ng-class="{completed: task.completed, editing: task == editedTask}">
+        <li ng-repeat="task in tasks | filter:statusFilter track by $index" ng-class="{completed: task.completed, editing: task == editedTask}">
             <input class="toggle" type="checkbox" ng-model="task.completed">
-            <button class="destroy" ng-click="removeTask(task)"><i class="fa fa-trash-o fa-fw"></i></button>
+            <button class="btn btn-danger destroy" ng-click="removeTask(task)"><i class="fa fa-trash-o fa-fw"></i></button>
             <div>
                 <label ng-dblclick="editTask(task)">{{task.title}}</label>
                 <div class="description" ng-dblclick="editTask(task)">{{task.description}}</div>

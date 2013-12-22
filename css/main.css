@@ -42,11 +42,13 @@ form#task-form {width: 320px}
 	resize: vertical;
 }
 #task-form>span {
-	position: absolute; 
+ 	position: absolute; 
 	left: 350px; 
-	top: 85px;
+	top: 75px;
 	font-size: smaller;
-	color: red;
+	padding: 6px;
+	display: block;
+	/*color: red;*/
 }
 
 /* Task list */
@@ -54,6 +56,7 @@ ul#task-list {width: 320px}
 #task-list label, #task-list div {
 	width: 240px;
 	margin-left: 16px;
+	overflow: hidden;
 }
 #task-list li {
 	margin: 12px 0; 
@@ -71,6 +74,6 @@ ul#task-list {width: 320px}
 }
 .destroy {
 	float: right; 
-	width: 40px; 
-	height: 30px;
+	width: 46px; 
+	height: 32px;
 }
