@@ -42,13 +42,17 @@ form#task-form {width: 320px}
 	resize: vertical;
 }
 #task-form>span {
- 	position: absolute; 
+ 	/*position: absolute; 
 	left: 350px; 
-	top: 75px;
+	top: 78px;*/
 	font-size: smaller;
 	padding: 6px;
 	display: block;
-	/*color: red;*/
+	position: relative;
+	margin-bottom: -28px;
+	top: -37px;
+	left: 330px;
+	width: 95px;
 }
 
 /* Task list */
