@@ -14,7 +14,7 @@ taskmgr.controller('TaskCtrl', function TaskCtrl($scope, $location, taskStorage,
 		$scope.remainingCount = filterFilter(tasks, { completed: false }).length;
 		$scope.completedCount = tasks.length - $scope.remainingCount;
 		$scope.allChecked = !$scope.remainingCount;
-		if (newValue !== oldValue) { // This prevents unneeded calls to the local storage
+		if (newValue !== oldValue) {
 			taskStorage.put(tasks);
 		}
 	}, true);
@@ -25,17 +25,21 @@ taskmgr.controller('TaskCtrl', function TaskCtrl($scope, $location, taskStorage,
 
 	$scope.location = $location;
 
-	$scope.$watch('location.path()', function (path) {
-		$scope.statusFilter = (path === '/active') ?
-			{ comleted: false } : (path === '/completed') ?
-			{ comleted: true } : null;
+	$scope.$watch('location.path()', function(path) {
+		if (path === '/active') {
+			$scope.statusFilter = {"completed": false};
+		} else if (path === '/completed') {
+			$scope.statusFilter = {"completed": true};
+		} else {
+			$scope.statusFilter = null;
+		}
 	});
 
 	$scope.addTask = function() {
 		var newTitle = $scope.newTitle;
 		
 		if(!newTitle.length) {
-			alert("Please enter title!");
+			alert("Please enter title!"); // !!! temporary
 			return;
 		}
 		var newDesc = $scope.newDesc.trim();
@@ -48,7 +52,13 @@ taskmgr.controller('TaskCtrl', function TaskCtrl($scope, $location, taskStorage,
 		$scope.newTask = '';
 	}
 
-	$scope.removeTask = function (task) {
+	$scope.clearCompletedTask = function() {
+		$scope.tasks = tasks = tasks.filter(function (val) {
+			return !val.completed;
+		});
+	};	
+
+	$scope.removeTask = function(task) {
 		tasks.splice(tasks.indexOf(task), 1);
 	};	
 

@@ -23,9 +23,9 @@
     <header>
         <h1>Personal task-manager</h1>
         <ul id="filters">
-            <li><a href="#/">All<span class="super">({{tasks.length}})</span></a></li>
-            <li><a href="#/active">Active<span class="super">({{remainingCount}})</span></a></li>
-            <li><a href="#/completed">Completed<span class="super">({{completedCount}})</span></a></li>
+            <li><a ng-class="{selected: location.path() == '/'} " href="#/">All</a><span class="super">({{tasks.length}})</span></li>
+            <li><a ng-class="{selected: location.path() == '/active'} " href="#/active">Active</a><span class="super">({{remainingCount}})</span></li>
+            <li><a ng-class="{selected: location.path() == '/completed'} " href="#/completed">Completed</a><span class="super">({{completedCount}})</span></li>
         </ul>
     </header>
 
