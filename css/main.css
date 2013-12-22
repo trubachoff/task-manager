@@ -1,0 +1,28 @@
+
+html, body {height: 100%; font-size: 14pt}
+h1 {font: small-caps xx-large sans}
+body>section {padding: 1em}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin-bottom: -3em;
+}
+#footer, #footer-push {
+    height: 3em;
+    margin: 0;
+    padding: 0;
+}
+#footer {
+    background: lightgray;
+    padding: 1em;
+}
+
+#filters li {display: inline; margin-right: 2em}
+#task-form input, #task-list label, #task-form textarea, #task-list textarea {display: block; font-size: smaller; width: 20em;}
+#task-form input {margin: 0.5em 0}
+#task-list li {margin: 1em 0; list-style: none}
+.super {vertical-align:super; font-size: small}
