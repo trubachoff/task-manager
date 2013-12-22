@@ -81,3 +81,10 @@ ul#task-list {width: 320px}
 	width: 46px; 
 	height: 32px;
 }
+.edit {
+	clear: right;
+	float: right; 
+	width: 46px; 
+	height: 32px;
+	margin-top: 10px;
+}
