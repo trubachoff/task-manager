@@ -1,7 +1,7 @@
 
-html, body {height: 100%; font-size: 14pt}
-h1 {font: small-caps xx-large sans}
-body>section {padding: 1em}
+html, body {height: 100%;}
+h1 {font: small-caps x-large sans;}
+body>section {padding: 1em;}
 
 /* Wrapper for page content to push down footer */
 #wrap {
@@ -38,11 +38,22 @@ form#task-form {width: 20em}
 	display: block; 
 	font-size: smaller; 
 	width: 100%;
+	resize: vertical;
+}
+#task-form>span {
+	position: absolute; 
+	left: 26.5em; 
+	top: 5.8em;
+	font-size: smaller;
+	color: red;
 }
 
 /* Task list */
 ul#task-list {width: 20em}
-#task-list label, #task-list textarea {width: 16em}
+#task-list label, #task-list div {
+	width: 15em;
+	margin-left: 1em;
+}
 #task-list li {
 	margin: 1em 0; 
 	list-style: none;

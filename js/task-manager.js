@@ -7,7 +7,8 @@ var taskmgr = angular.module('taskmgr', []);
 taskmgr.controller('TaskCtrl', function TaskCtrl($scope, $location, taskStorage, filterFilter) {
 	var tasks = $scope.tasks = taskStorage.get();
 
-	$scope.newTitle, $scope.newDesc = '';
+	$scope.newTitle = '';
+	$scope.newDesc = '';
 	$scope.editedTask = null;
 
 	$scope.$watch('tasks', function (newValue, oldValue) {
@@ -37,11 +38,6 @@ taskmgr.controller('TaskCtrl', function TaskCtrl($scope, $location, taskStorage,
 
 	$scope.addTask = function() {
 		var newTitle = $scope.newTitle;
-		
-		if(!newTitle.length) {
-			alert("Please enter title!"); // !!! temporary
-			return;
-		}
 		var newDesc = $scope.newDesc.trim();
 		tasks.push({
 			title: newTitle,
