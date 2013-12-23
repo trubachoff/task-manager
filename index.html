@@ -13,7 +13,7 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/reset-html5.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main2.css" />
 
     <title>Personal Task-manager</title>
 </head>
@@ -30,10 +30,10 @@
     </header>
 
     <form id="task-form" name="taskForm" ng-submit="addTask()">
-	    <input class="input-task" id="new-title" name="newTitle" placeholder="Please enter a title" autofocus required ng-model="newTitle"/>
+	    <input class="task-line" id="new-title" name="newTitle" placeholder="Please enter a title" autofocus required ng-model="newTitle" />
         <span class="info alert alert-warning" ng-show="taskForm.newTitle.$error.required">Requred field!</span>
-        <textarea class="input-task" placeholder="Enter description" ng-model="newDesc"></textarea>
-        <input class="input-task btn  btn-primary" type="submit" value="Add" ng-disabled="taskForm.$invalid" />
+        <textarea class="task-line" placeholder="Enter description" ng-model="newDesc"></textarea>
+        <input class="task-line btn btn-primary" type="submit" value="Add" ng-disabled="taskForm.$invalid" />
 	</form>
 
     <ul id="task-list">
@@ -41,17 +41,17 @@
             <div class="view">
                 <input class="toggle" type="checkbox" ng-model="task.completed">
                 <button class="btn btn-primary btn-edit" ng-click="editTask(task)"><i class="fa fa-pencil-square-o fa-fw"></i></button>
-                <button class="btn btn-danger btn-destroy" ng-click="removeTask(task)"><i class="fa fa-trash-o fa-fw"></i></button>            
+                <button class="btn btn-primary btn-destroy" ng-click="removeTask(task)"><i class="fa fa-trash-o fa-fw"></i></button>            
                 <div>
                     <label ng-dblclick="editTask(task)">{{task.title}}</label>
                     <div class="description">{{task.description}}</div>
                 </div>
             </div>
             <form class="edit" name="taskEditForm" ng-submit="doneEditing(task)">
-                <input class="input-task" id="edit-title" name="editTitle" required ng-model="task.title"/>
+                <input class="task-line" id="edit-title" name="editTitle" required ng-model="task.title"/>
                 <span class="alert alert-warning info" ng-show="taskEditForm.editTitle.$error.required">Requred field!</span>
-                <textarea class="input-task" ng-model="task.description"></textarea>
-                <input class="input-task btn  btn-primary" type="submit" value="Save" ng-disabled="taskEditForm.$invalid" />
+                <textarea class="task-line" ng-model="task.description"></textarea>
+                <input class="task-line btn btn-primary" type="submit" value="Save" ng-disabled="taskEditForm.$invalid" />
             </form>
         </li>
     </ul>
