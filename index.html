@@ -30,21 +30,28 @@
     </header>
 
     <form id="task-form" name="taskForm" ng-submit="addTask()">
-	    <input id="new-title" name="newTitle" placeholder="Please enter a title" autofocus required ng-model="newTitle"/>
+	    <input class="input-task" id="new-title" name="newTitle" placeholder="Please enter a title" autofocus required ng-model="newTitle"/>
         <span class="alert alert-warning" ng-show="taskForm.newTitle.$error.required">Requred field!</span>
-        <textarea placeholder="Enter description" ng-model="newDesc"></textarea>
-        <input class="btn  btn-primary" type="submit" value="Add" ng-disabled="taskForm.$invalid" />
+        <textarea class="input-task" placeholder="Enter description" ng-model="newDesc"></textarea>
+        <input class="input-task btn  btn-primary" type="submit" value="Add" ng-disabled="taskForm.$invalid" />
 	</form>
 
     <ul id="task-list">
         <li ng-repeat="task in tasks | filter:statusFilter track by $index" ng-class="{completed: task.completed, editing: task == editedTask}">
-            <input class="toggle" type="checkbox" ng-model="task.completed">
-            <button class="btn btn-primary edit" ng-click="editTask(task)"><i class="fa fa-pencil-square-o fa-fw"></i></button>
-            <button class="btn btn-danger destroy" ng-click="removeTask(task)"><i class="fa fa-trash-o fa-fw"></i></button>            
-            <div>
-                <label ng-dblclick="editTask(task)">{{task.title}}</label>
-                <div class="description">{{task.description}}</div>
+            <div class="view">
+                <input class="toggle" type="checkbox" ng-model="task.completed">
+                <button class="btn btn-primary btn-edit" ng-click="editTask(task)"><i class="fa fa-pencil-square-o fa-fw"></i></button>
+                <button class="btn btn-danger btn-destroy" ng-click="removeTask(task)"><i class="fa fa-trash-o fa-fw"></i></button>            
+                <div>
+                    <label ng-dblclick="editTask(task)">{{task.title}}</label>
+                    <div class="description">{{task.description}}</div>
+                </div>
             </div>
+            <form class="edit" name="taskEditForm" ng-submit="doneEditing(task)">
+                <input class="input-task" id="edit-title" name="editTitle" required ng-model="task.title"/>
+                <textarea class="input-task" ng-model="task.description"></textarea>
+                <input class="input-task btn  btn-primary" type="submit" value="Save" ng-disabled="taskEditForm.$invalid" />
+            </form>
         </li>
     </ul>
 

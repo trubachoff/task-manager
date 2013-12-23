@@ -45,7 +45,8 @@ taskmgr.controller('TaskCtrl', function TaskCtrl($scope, $location, taskStorage,
 			completed: false
 		});
 
-		$scope.newTask = '';
+		$scope.newTitle = '';
+		$scope.newDesc = '';
 	}
 
 	$scope.clearCompletedTask = function() {
@@ -63,7 +64,10 @@ taskmgr.controller('TaskCtrl', function TaskCtrl($scope, $location, taskStorage,
 		$scope.origTask = angular.extend({}, task);
 	};
 
-	
+	$scope.doneEditing = function (task) {
+		$scope.editedTask = null;
+		task.title = task.title.trim();
+	};	
 
 });
 

@@ -24,7 +24,7 @@ body>section {padding: 20px;}
 /* Filters */
 #filters li {
 	display: inline;
-	margin-left: 2em;
+	margin-left: 1.5em;
 }
 .super {
 	vertical-align:super;
@@ -34,33 +34,30 @@ body>section {padding: 20px;}
 
 /* Task form */
 form#task-form {width: 320px}
-#task-form input {margin: 12px 0}
-#task-form input, #task-form textarea {
-	display: block; 
+.input-task {
+	display: inline; 
 	font-size: smaller; 
 	width: 100%;
 	resize: vertical;
+	margin: 6px 0;
 }
 #task-form>span {
- 	/*position: absolute; 
-	left: 350px; 
-	top: 78px;*/
 	font-size: smaller;
 	padding: 6px;
 	display: block;
 	position: relative;
 	margin-bottom: -28px;
-	top: -37px;
+	top: -32px;
 	left: 330px;
 	width: 95px;
 }
 
 /* Task list */
 ul#task-list {width: 320px}
-#task-list label, #task-list div {
+#task-list label, #task-list div div {
 	width: 240px;
 	margin-left: 16px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 #task-list li {
 	margin: 12px 0; 
@@ -77,12 +74,20 @@ ul#task-list {width: 320px}
 	float: left; 
 	width: 15px;
 }
-.destroy, .edit {
+.btn-destroy, .btn-edit {
 	float: right; 
 	width: 46px; 
 	height: 32px;
 }
-.destroy {
+.btn-destroy {
 	clear: right;
 	margin-top: 10px;
 }
+/* Task edit */
+#task-list li.editing .view {display: none;}
+
+#task-list li.editing .edit {
+	display: inline;
+}
+#task-list li .edit {display: none;}
+
