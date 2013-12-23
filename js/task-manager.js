@@ -58,6 +58,13 @@ taskmgr.controller('TaskCtrl', function TaskCtrl($scope, $location, taskStorage,
 		tasks.splice(tasks.indexOf(task), 1);
 	};	
 
+	$scope.editTask = function(task) {
+		$scope.editedTask = task;
+		$scope.origTask = angular.extend({}, task);
+	};
+
+	
+
 });
 
 // Local sorage service

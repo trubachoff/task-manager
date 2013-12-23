@@ -76,15 +76,12 @@ ul#task-list {width: 320px}
 	float: left; 
 	width: 15px;
 }
-.destroy {
+.destroy, .edit {
 	float: right; 
 	width: 46px; 
 	height: 32px;
 }
-.edit {
+.destroy {
 	clear: right;
-	float: right; 
-	width: 46px; 
-	height: 32px;
 	margin-top: 10px;
 }

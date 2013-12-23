@@ -39,11 +39,11 @@
     <ul id="task-list">
         <li ng-repeat="task in tasks | filter:statusFilter track by $index" ng-class="{completed: task.completed, editing: task == editedTask}">
             <input class="toggle" type="checkbox" ng-model="task.completed">
-            <button class="btn btn-danger destroy" ng-click="removeTask(task)"><i class="fa fa-trash-o fa-fw"></i></button>
-            <button class="btn btn-primary edit" ng-click="removeTask(task)"><i class="fa fa-pencil-square-o fa-fw"></i></button>
+            <button class="btn btn-primary edit" ng-click="editTask(task)"><i class="fa fa-pencil-square-o fa-fw"></i></button>
+            <button class="btn btn-danger destroy" ng-click="removeTask(task)"><i class="fa fa-trash-o fa-fw"></i></button>            
             <div>
                 <label ng-dblclick="editTask(task)">{{task.title}}</label>
-                <div class="description" ng-dblclick="editTask(task)">{{task.description}}</div>
+                <div class="description">{{task.description}}</div>
             </div>
         </li>
     </ul>
@@ -52,7 +52,7 @@
 </section>
 
 <footer id="footer">
-    <p><a href="">Tra-ta-ta</a> &mdash; tu-tu ru-tu!</p>
+    <p><a href="http://angularjs.org">Powered with AngularJS</a> &mdash; 2013</p>
 </footer>
 </body>
 </html>
