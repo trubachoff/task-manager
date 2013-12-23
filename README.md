@@ -1,2 +1,4 @@
-# task-manager
-Personal Task Manager: client side application (AngularJS)
+# Personal Task-manager application
+AngularJS powered task-manager application 
+
+* [demonstrate](http://sys.pp.ua/task-manager)
