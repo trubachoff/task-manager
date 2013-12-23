@@ -65,6 +65,7 @@ ul#task-list {width: 320px}
 #task-list li {
 	margin: 12px 0; 
 	list-style: none;
+	min-height: 80px;
 }
 #task-list li.completed label {
 	text-decoration: line-through;
