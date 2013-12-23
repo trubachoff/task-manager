@@ -41,15 +41,16 @@ form#task-form {width: 320px}
 	resize: vertical;
 	margin: 6px 0;
 }
-#task-form>span {
+span.info {
 	font-size: smaller;
 	padding: 6px;
+	height: 27px;
 	display: block;
+	width: 95px;
+	margin-bottom: -27px;
 	position: relative;
-	margin-bottom: -28px;
 	top: -32px;
 	left: 330px;
-	width: 95px;
 }
 
 /* Task list */

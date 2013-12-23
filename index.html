@@ -31,7 +31,7 @@
 
     <form id="task-form" name="taskForm" ng-submit="addTask()">
 	    <input class="input-task" id="new-title" name="newTitle" placeholder="Please enter a title" autofocus required ng-model="newTitle"/>
-        <span class="alert alert-warning" ng-show="taskForm.newTitle.$error.required">Requred field!</span>
+        <span class="info alert alert-warning" ng-show="taskForm.newTitle.$error.required">Requred field!</span>
         <textarea class="input-task" placeholder="Enter description" ng-model="newDesc"></textarea>
         <input class="input-task btn  btn-primary" type="submit" value="Add" ng-disabled="taskForm.$invalid" />
 	</form>
@@ -49,6 +49,7 @@
             </div>
             <form class="edit" name="taskEditForm" ng-submit="doneEditing(task)">
                 <input class="input-task" id="edit-title" name="editTitle" required ng-model="task.title"/>
+                <span class="alert alert-warning info" ng-show="taskEditForm.editTitle.$error.required">Requred field!</span>
                 <textarea class="input-task" ng-model="task.description"></textarea>
                 <input class="input-task btn  btn-primary" type="submit" value="Save" ng-disabled="taskEditForm.$invalid" />
             </form>
